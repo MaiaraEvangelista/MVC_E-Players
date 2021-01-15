@@ -33,7 +33,6 @@ namespace MVC_E_Players.Models
                }
            }
 
-
             return linhas;
         }
 
