@@ -23,9 +23,9 @@ namespace MVC_E_Players.Models
             return $"{j.IdJogador}; {j.Nome}; {j.IdEquipe}";
         }
 
-        public void Create(Equipe e)
+        public void Create(Jogador j)
         {
-            string[] linhas = { Prepare(e) }; 
+            string[] linhas = { Prepare(j) }; 
             File.AppendAllLines(PATH, linhas);
         }
 
@@ -52,9 +52,27 @@ namespace MVC_E_Players.Models
 
         public void Update(Jogador j)
         {
-            throw new System.NotImplementedException();
+            List<string> linhas = ReadAllLinesCSV(PATH);
+
+            linhas.RemoveAll(x => x.Split(";")[0] == j.IdJogador.ToString());
+            linhas.Add(Prepare (j));
+
+            RewriteCSV(PATH, linhas);
+        }
+
+        public void Delete(int id)
+        {
+            List<string> linhas = ReadAllLinesCSV(PATH);
+
+            linhas.RemoveAll(x => x.Split(";")[0] == IdEquipe.ToString());
+            RewriteCSV(PATH, linhas);
         }
 
        
+
+       // public void Delete()
+        //{
+          //  throw new System.NotImplementedException();
+        //}
     }
 }

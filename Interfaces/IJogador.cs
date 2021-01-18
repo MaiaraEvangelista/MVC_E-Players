@@ -5,13 +5,13 @@ namespace MVC_E_Players.Interfaces
 {
     public interface IJogador
     {
-         void Create(Equipe e);
+         void Create(Jogador j);
 
          List<Jogador> ReadAll();
 
          void Update(Jogador j);
 
             //Observar se vai ser realmente necessário o delete
-         //void Delete();
+         void Delete(int id);
     }
 }
