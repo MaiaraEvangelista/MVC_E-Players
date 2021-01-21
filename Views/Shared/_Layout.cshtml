@@ -19,16 +19,23 @@
                     <i class="fas fa-bars"></i>
                 </a>
 
-                <a href="index.html">
-                    <img src="Images/Logo.svg" alt="Logo do site E-Players">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/Images/Logo.svg" alt="Logo do site E-Players">
                 </a>
             </div>
             <nav id="menu">
                 <ul>
-                    <li><a href="index.html" title="voltar para a página inicial">INÍCIO</a></li>
-                    <li><a href="#horarios" title="Ir até a sessão de horários das partidas">HORÁRIOS</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" title="voltar para a página inicial">INÍCIO</a></li>
+                    <li><a asp-area="" asp-controller="Horários" asp-action="Index" title="Ir até a sessão de horários das partidas">HORÁRIOS</a></li>
                     <li><a href="#resultados" title="Ir até a sessão de resultados das partidas">RESULTADOS</a></li>
                     <li><a href="#noticias" title="Ir até a sessão de notícias">NOTÍCIAS</a></li>
+                    @if (ViewBag.UserName != null)
+                    {
+                        <li>Olá @ViewBag.UserName !</li>
+                        <li><a asp-controller="Login" asp-action="Lougout" title="Sair da aplicação">LOGIN</a></li>
+                    }else{
+                        <li><a asp-controller="Login" asp-action="Index" title="Voltar para a pagina de inicial">LOGIN</a></li>
+                    }
                     <li><a href="#" title="buscar conteudo no site"><i class="fas fa-search"></i></a></li>
                 </ul>
             </nav>
@@ -75,7 +82,7 @@
         </div>
         <p>© Copyrigth 2077 - Todos os direitos reservados ao sena-code</p>
     </footer>
-
+  
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

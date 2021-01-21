@@ -12,6 +12,8 @@ namespace MVC_E_Players.Models
 
         public int IdEquipe { get; set; }
 
+        public string Email {get;set;}
+
         private const string PATH = "Database/Jogador.csv";
 
         public Jogador(){
